@@ -2,15 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "myfunc.h"
-
-int myfunc(int b) {
-    char *buffer = malloc(sizeof(char) * 1000);
-    buffer [0] = b + 4;
-    // Р·РґРµСЃСЊ РґРѕР»Р¶РµРЅ СЂСѓРіР°С‚СЊСЃСЏ sonarcloud, С‚.Рє. СѓС‚РµС‡РєР° РїР°РјСЏС‚Рё
-    return buffer[0];
-}
-
-int val;
+#include <math.h>
 
 int fibonachi(int num) {
     int prev = 1;
@@ -32,7 +24,32 @@ int fibonachi(int num) {
     return next;
 }
 
-void printStdoutMessages() {
-    printf("This is a test message from myfunc.c\n");
-    printf("Do not disturb\n");
+double my_sqrt(double num) {
+    if(num<0){
+       return 0;
+    }
+    return sqrt(num);
+}
+
+// Функция для вычисления действительных корней квадратного уравнения
+double* realQuadraticRoots(double a, double b, double c) {
+    double *roots = malloc(2 * sizeof(double)); // Выделяем память для массива корней
+
+    // Вычисляем дискриминант
+    double discriminant = b * b - 4 * a * c;
+
+    // Проверяем знак дискриминанта
+    if (discriminant > 0) {
+        // Два действительных корня
+        roots[0] = (-b + sqrt(discriminant)) / (2 * a);
+        roots[1] = (-b - sqrt(discriminant)) / (2 * a);
+    } else if (discriminant == 0) {
+        // Один корень (корень кратности 2)
+        roots[0] = -b / (2 * a);
+        roots[1] = roots[0];
+    } else {
+        // Корни не существуют
+        roots[0] = roots[1] = 0.0;    }
+    
+    return roots;
 }

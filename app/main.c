@@ -4,6 +4,11 @@
 
 int main()
 {
+    double *roots;
     printf("Hello World!\n");
-    return myfunc(2);
+    printf("%f\n", my_sqrt(9));
+    roots = realQuadraticRoots(1, -4, 4);
+    printf("%f\n", roots[0]);
+    printf("%f\n", roots[1]);
+    free(roots);
 }
