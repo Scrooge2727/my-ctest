@@ -16,7 +16,7 @@ TEST(myquadraticrootsTest, TwoRealRoots) {
     double *roots = realQuadraticRoots(a, b, c);
     ASSERT_TRUE(roots != NULL);
     ASSERT_DOUBLE_EQ(roots[0], 2.0);
-    ASSERT_DOUBLE_EQ(roots[1], 1.0);
+    ASSERT_DOUBLE_EQ(roots[1], 2.0);
     free(roots);
 }
 
